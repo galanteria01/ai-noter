@@ -25,7 +25,11 @@ const CreateNoteDialog = (props: Props) => {
           <DialogDescription>You can create new note by giving it a name!</DialogDescription>
         </DialogHeader>
         <form>
-          <Input placeholder='Name' value={value} onChange={(e) => setValue(e.target.value)} />
+          <Input
+            placeholder='Name'
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
           <div className='h-4'></div>
           <div className="flex items-center gap-2">
             <Button type='reset' variant={'secondary'}>
