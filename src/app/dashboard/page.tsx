@@ -6,6 +6,7 @@ import React from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { UserButton } from '@clerk/nextjs'
 import { Separator } from '@radix-ui/react-separator'
+import CreateNoteDialog from '@/components/custom/create-note-dialog'
 
 type Props = {}
 
@@ -31,6 +32,10 @@ export default function DashboardPage({ }: Props) {
           <div className="h-8"></div>
           <div className="text-center">
             <h2 className='text-xl text-gray-500'>You have no notes</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-3 md:grid-cols-5 grid-cols-1 gap-3">
+            <CreateNoteDialog />
           </div>
         </div>
       </div>
