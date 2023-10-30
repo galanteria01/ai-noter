@@ -13,7 +13,7 @@ export async function generateImagePrompt(name: string) {
       messages: [
         {
           role: "system",
-          content: "You are a creative and helpful AI assistant capable of generating interesting thumbnails descriptions for my notes. Your outputs will be fed to DALLE api to generate image. The descriptions should be minimalist."
+          content: "You are a creative and helpful AI assistant capable of generating interesting thumbnails descriptions for my notes. Your outputs will be fed to DALLE api to generate image. The descriptions should be minimalist and flat styled."
         },
         {
           role: "user",
@@ -22,7 +22,6 @@ export async function generateImagePrompt(name: string) {
       ]
     })
     const data = await response.json()
-    console.log(data)
     const image_description = data.choices[0].message.content
     return image_description as string
   } catch (e) {
@@ -32,6 +31,18 @@ export async function generateImagePrompt(name: string) {
 
 }
 
-export async function generateImage() {
+export async function generateImage(image_description: string) {
+  try {
+    const response = await openai.createImage({
+      prompt: image_description,
+      n: 1,
+      size: '256x256'
+    })
+    const data = await response.json()
+    const image_url = data.data[0].url;
+    return image_url as string;
+  } catch (e) {
+    console.log(e)
+  }
 
 }

@@ -1,6 +1,10 @@
-// /api/create-note
+/**
+ * ROUTE /api/create-note
+ */
 
-import { generateImagePrompt } from "@/lib/openai"
+import { db } from "@/lib/db"
+import { $notes } from "@/lib/db/schema"
+import { generateImage, generateImagePrompt } from "@/lib/openai"
 import { auth } from "@clerk/nextjs"
 import { NextResponse } from "next/server"
 
@@ -12,5 +16,21 @@ export async function POST(req: Request) {
   const body = await req.json()
   const { name } = body
   const image_description = await generateImagePrompt(name);
-  return new NextResponse("ok")
+  if (!image_description) {
+    return new NextResponse("Failed to generate image description", { status: 500 })
+  }
+  const image_url = await generateImage(image_description)
+  if (!image_url) {
+    return new NextResponse("Failed to generate image", { status: 500 })
+  }
+  const notes = await db.insert($notes).values({
+    name: name,
+    userId: userId,
+    imageUrl: image_url
+  }).returning({
+    insertedId: $notes.id
+  })
+
+  console.log(image_description)
+  return NextResponse.json({ note_id: notes[0].insertedId })
 }
