@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className=''>
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full'>
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-5xl w-full'>
         <h1 className="font-semibold text-3xl  md:text-7xl text-center">
           Artificial Intelligence based <span className='text-indigo-600 font-bold'>note taking</span>{' '} assistant
         </h1>
