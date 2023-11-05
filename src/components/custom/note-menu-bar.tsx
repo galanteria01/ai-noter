@@ -26,106 +26,106 @@ type Props = {
 
 export default function NoteMenuBar({ editor }: Props) {
   return (
-    <div className='grid grid-cols-8 gap-2'>
+    <div className='grid grid-cols-3 md:grid-cols-8 gap-2'>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
         className={editor.isActive("bold") ? "is-active" : ""}
       >
-        <Bold className="w-6 h-6" />
+        <Bold className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={editor.isActive("italic") ? "is-active" : ""}
       >
-        <Italic className="w-6 h-6" />
+        <Italic className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         className={editor.isActive("strike") ? "is-active" : ""}
       >
-        <Strikethrough className="w-6 h-6" />
+        <Strikethrough className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleCode().run()}
         disabled={!editor.can().chain().focus().toggleCode().run()}
         className={editor.isActive("code") ? "is-active" : ""}
       >
-        <Code className="w-6 h-6" />
+        <Code className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
       >
-        <Heading1 className="w-6 h-6" />
+        <Heading1 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
       >
-        <Heading2 className="w-6 h-6" />
+        <Heading2 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
       >
-        <Heading3 className="w-6 h-6" />
+        <Heading3 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
         className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
       >
-        <Heading4 className="w-6 h-6" />
+        <Heading4 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
         className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
       >
-        <Heading5 className="w-6 h-6" />
+        <Heading5 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
         className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
       >
-        <Heading6 className="w-6 h-6" />
+        <Heading6 className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive("bulletList") ? "is-active" : ""}
       >
-        <List className="w-6 h-6" />
+        <List className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive("orderedList") ? "is-active" : ""}
       >
-        <ListOrdered className="w-6 h-6" />
+        <ListOrdered className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={editor.isActive("codeBlock") ? "is-active" : ""}
       >
-        <CodepenIcon className="w-6 h-6" />
+        <CodepenIcon className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={editor.isActive("blockquote") ? "is-active" : ""}
       >
-        <Quote className="w-6 h-6" />
+        <Quote className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().chain().focus().undo().run()}
       >
-        <Undo className="w-6 h-6" />
+        <Undo className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
       <NoteMenuBarToggle
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().chain().focus().redo().run()}
       >
-        <Redo className="w-6 h-6" />
+        <Redo className="h-4 w-4 md:w-6 md:h-6" />
       </NoteMenuBarToggle>
 
     </div>

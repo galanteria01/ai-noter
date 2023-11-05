@@ -29,7 +29,7 @@ export default async function DashboardPage({ }: Props) {
           {notes.length === 0 && <div className="text-center">
             <h2 className='text-xl text-gray-500'>You have no notes</h2>
           </div>}
-          <div className="grid sm:grid-cols-3 md:grid-cols-5 grid-cols-1 gap-3">
+          <div className="grid sm:grid-cols-3 md:grid-cols-5 grid-cols-2 gap-3">
             <CreateNoteDialog />
             {
               notes.map((note, index) => {

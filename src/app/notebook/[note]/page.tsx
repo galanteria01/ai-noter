@@ -34,14 +34,14 @@ export default async function NotebookPage({ params: { note } }: Props) {
   }
   const currentNote = notes[0]
   return (
-    <div className=" min-h-screen p-8">
+    <div className=" min-h-screen p-4">
       <div className="max-w-6xl mx-auto">
         <div className="border shadow-xl rounded-lg flex p-4 items-center border-stone-200">
           <Link href="/dashboard">
             <Button className='bg-indigo-600' size={'sm'}>Back</Button>
           </Link>
           <div className="w-3"></div>
-          <span className='font-semibold'>{user.firstName} {user.lastName}</span>
+          <span className='font-semibold'>{user.firstName}</span>
           <span className='inline-block mx-1'>
             /
           </span>

@@ -24,7 +24,11 @@ export default function FAQAccordian() {
         <AccordionTrigger>Is it Open-source?</AccordionTrigger>
         <AccordionContent>
           Yes it is open-source and can be found at{" "}
-          <a className="font-semibold text-indigo-600 hover:underline" href="https://github.com/galanteria01/ai-noter">
+          <a
+            className="font-semibold text-indigo-600 hover:underline"
+            href="https://github.com/galanteria01/ai-noter"
+            target="_blank"
+          >
             Github
           </a>
         </AccordionContent>
