@@ -7,7 +7,7 @@ import {
 
 export default function FAQAccordian() {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="single" collapsible className="w-full px-8">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it free?</AccordionTrigger>
         <AccordionContent>

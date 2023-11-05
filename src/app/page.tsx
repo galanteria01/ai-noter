@@ -7,12 +7,12 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className=''>
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-        <h1 className="font-semibold text-7xl text-center">
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full'>
+        <h1 className="font-semibold text-3xl  md:text-7xl text-center">
           Artificial Intelligence based <span className='text-indigo-600 font-bold'>note taking</span>{' '} assistant
         </h1>
         <div className="mt-4"> </div>
-        <h2 className='font-semibold text-3xl text-center'><TypewriteTitle /></h2>
+        <h2 className='font-semibold text-xl md:text-3xl text-center'><TypewriteTitle /></h2>
         <div className="mt-8"> </div>
         <div className='flex justify-center'>
           <Link href={"/dashboard"}>
@@ -21,6 +21,7 @@ export default function Home() {
             </Button>
           </Link>
         </div>
+        <div className="mt-8"> </div>
         <FAQAccordian />
       </div>
     </div>
