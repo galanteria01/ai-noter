@@ -11,10 +11,13 @@ const TypewriteTitle = (props: Props) => {
       options={{ loop: true }}
       onInit={(typewriter) => {
         typewriter
-          .typeString(' Supercharged Productivity')
+          .typeString('Supercharged Productivity')
           .pauseFor(1000)
           .deleteAll()
-          .typeString("AI powered")
+          .typeString("Generative AI based")
+          .pauseFor(1000)
+          .deleteAll()
+          .typeString("Easy to use")
           .start()
       }}
     />
