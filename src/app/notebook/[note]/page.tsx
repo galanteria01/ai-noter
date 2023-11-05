@@ -39,7 +39,7 @@ export default async function NotebookPage({ params: { note } }: Props) {
       <div className="max-w-4xl mx-auto">
         <div className="border shadow-xl rounded-lg flex p-4 items-center border-stone-200">
           <Link href="/dashboard">
-            <Button className='bg-green-600' size={'sm'}>Back</Button>
+            <Button className='bg-indigo-600' size={'sm'}>Back</Button>
           </Link>
           <div className="w-3"></div>
           <span className='font-semibold'>{user.firstName} {user.lastName}</span>

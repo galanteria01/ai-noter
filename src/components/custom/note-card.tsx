@@ -10,7 +10,7 @@ const NoteCard = ({ note, createdAt }: Props) => {
   return (
     <a href={`/notebook/${note.id}`} key={note.id}>
       <div className='border border-stone-200 rounded-lg overflow-hidden flex flex-col hover:shadow-xl transition hover:-translate-y-1'>
-        <img width={400} height={200} alt={note.name} src={note.imageUrl ?? ""} />
+        <img width={256} height={256} alt={note.name} src={note.imageUrl ?? ""} />
         <div className="p-4">
 
           <h3 className='text-xl font-semibold'>{note.name}</h3>

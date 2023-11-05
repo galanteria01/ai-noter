@@ -13,7 +13,7 @@ const DashboardHeader = ({ userName }: Props) => {
   return (
     <div className='flex justify-between items-center'>
       <Link href="/">
-        <Button className='bg-green-600'><ArrowLeft className='mr-1 w-4 h-4' size={'sm'} /> Back</Button>
+        <Button className='bg-indigo-600'><ArrowLeft className='mr-1 w-4 h-4' size={'sm'} /> Back</Button>
       </Link>
       <div className="w-4"></div>
       <h1 className='text-xl font-bold md:text-3xl'>{userName}'s Notes</h1>

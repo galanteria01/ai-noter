@@ -9,7 +9,6 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { toast } from '../ui/use-toast'
 
-
 type Props = {}
 
 const CreateNoteDialog = (props: Props) => {
@@ -48,9 +47,9 @@ const CreateNoteDialog = (props: Props) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className='border-dashed flex border-2 border-green-600 h-full rounded-lg items-center justify-center sm:flex-col hover:shadow-xl transition hover:-translate-y-1 flex-row p-4'>
-          <Plus className='w-6 h-6 text-green-600 stroke-3' />
-          <h2 className='font-semibold text-green-600 sm:mt-2'>New Note Book</h2>
+        <div className='border-dashed flex border-2 border-indigo-600 h-full rounded-lg items-center justify-center sm:flex-col hover:shadow-xl transition hover:-translate-y-1 flex-row p-4'>
+          <Plus className='w-6 h-6 text-indigo-600 stroke-3' />
+          <h2 className='font-semibold text-indigo-600 sm:mt-2'>New Note Book</h2>
         </div>
       </DialogTrigger>
       <DialogContent>
@@ -73,7 +72,7 @@ const CreateNoteDialog = (props: Props) => {
                 Cancel
               </Button>
             </DialogClose>
-            <Button type='submit' className='bg-green-600' disabled={createNotebook.isPending}>
+            <Button type='submit' className='bg-indigo-600' disabled={createNotebook.isPending}>
               {createNotebook.isPending ? (<Loader2 className='animate-spin w-4 h-4' />) : "Create"}
             </Button>
           </div>
