@@ -10,6 +10,8 @@ import { auth } from "@clerk/nextjs"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import { NextResponse } from "next/server"
 
+export const runtime = "edge"
+
 export async function POST(req: Request) {
   const { userId } = auth()
   if (!userId) {
