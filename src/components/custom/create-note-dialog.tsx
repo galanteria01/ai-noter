@@ -23,6 +23,14 @@ const CreateNoteDialog = (props: Props) => {
       return response.data
     }
   })
+  const uploadToFirebase = useMutation({
+    mutationFn: async (noteId: string) => {
+      const response = await axios.post("/api/upload-image", {
+        noteId,
+      });
+      return response.data;
+    },
+  });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (value === "") {
@@ -35,6 +43,7 @@ const CreateNoteDialog = (props: Props) => {
     createNotebook.mutate(undefined, {
       onSuccess: ({ note_id }) => {
         console.log(note_id);
+        uploadToFirebase.mutate(note_id);
         router.push(`/notebook/${note_id}`)
       },
       onError: (error) => {

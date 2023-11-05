@@ -28,18 +28,10 @@ export async function POST(req: Request) {
     return new NextResponse("Failed to generate image", { status: 500 })
   }
 
-  const response = await fetch(image_url);
-  const buffer = await response.arrayBuffer();
-  const file_name = name.replace(' ', '') + Date.now + '.jpg';
-  const storageRef = ref(storage, file_name)
-  await uploadBytes(storageRef, buffer, { contentType: 'image/jpeg' });
-  const firebase_url = await getDownloadURL(storageRef)
-
-
   const notes = await db.insert($notes).values({
     name: name,
     userId: userId,
-    imageUrl: firebase_url
+    imageUrl: image_url
   }).returning({
     insertedId: $notes.id
   })
