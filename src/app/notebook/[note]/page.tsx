@@ -1,3 +1,4 @@
+import DeleteNote from '@/components/custom/delete-note'
 import TipTapEditor from '@/components/custom/tip-tap-editor'
 import { Button } from '@/components/ui/button'
 import { clerk } from '@/lib/clerk'
@@ -47,11 +48,11 @@ export default async function NotebookPage({ params: { note } }: Props) {
           </span>
           <span className='text-stone-500 font-semibold'>{currentNote.name}</span>
           <div className="ml-auto"></div>
-          <Button><Trash /></Button>
+          <DeleteNote noteId={currentNote.id} />
         </div>
         <div className="h-4"></div>
         <div className='border border-stone-200 shadow-xl rounded-lg w-full px-16 py-8'>
-          <TipTapEditor />
+          <TipTapEditor note={currentNote} />
         </div>
       </div>
     </div>
