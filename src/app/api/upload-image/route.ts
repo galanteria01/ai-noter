@@ -1,3 +1,7 @@
+/**
+ * ROUTE /api/upload-image
+ */
+
 import { db } from "@/lib/db";
 import { $notes } from "@/lib/db/schema";
 import { uploadFileToFirebase } from "@/lib/firebase";
@@ -7,8 +11,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { noteId } = await req.json();
-    // extract out the dalle imageurl
-    // save it to firebase
     const notes = await db
       .select()
       .from($notes)
@@ -20,7 +22,6 @@ export async function POST(req: Request) {
       notes[0].imageUrl,
       notes[0].name
     );
-    // update the note with the firebase url
     await db
       .update($notes)
       .set({

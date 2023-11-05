@@ -6,7 +6,6 @@ import Provider from '@/components/custom/provider'
 import { Toaster } from '@/components/ui/toaster'
 import { ThemeProvider } from '@/components/custom/theme-provider'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

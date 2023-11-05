@@ -84,6 +84,7 @@
 }
 
 .is-active {
-  background-color: #dadada;
-  border-radius: 2px;
+  /* background-color: #dadada; */
+  border: 1px solid #dadada;
+  border-radius: 5px;
 }

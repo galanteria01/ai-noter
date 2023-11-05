@@ -3,13 +3,14 @@ import React from 'react'
 import { EditorContent, useEditor } from '@tiptap/react'
 import { StarterKit } from '@tiptap/starter-kit'
 import { Button } from '../ui/button'
-import { useDebounce } from '@/lib/hooks/useDebounce'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { NoteType } from '@/lib/db/schema'
 import Text from '@tiptap/extension-text'
 import { useCompletion } from 'ai/react'
 import NoteMenuBar from './note-menu-bar'
+import { useDebounce } from '@/hooks/useDebounce'
+import { toast } from '../ui/use-toast'
 
 type Props = {
   note: NoteType
@@ -61,6 +62,9 @@ export default function NoteEditor({ note }: Props) {
       },
       onError: (error) => {
         console.error(error)
+        toast({
+          description: "Failed to save notebook",
+        })
       }
     })
   }, [debouncedEditorState])
@@ -78,12 +82,12 @@ export default function NoteEditor({ note }: Props) {
           {saveNote.isPending ? "Saving..." : "Saved"}
         </Button>
       </div>
-      <div className='prose prose-sm w-full mt-4'>
+      <div className='prose prose-sm w-full mt-4 dark:prose-invert'>
         <EditorContent editor={editor} />
       </div>
       <div className="text-sm">
-        Tip: Press<kbd className='px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 rounded-lg'>Shift + A</kbd>
-        for AI autocomplete
+        Tip: Press <kbd className='px-2 py-1.5 text-xs font-bold text-gray-800 bg-gray-100 rounded-lg'>Shift + A</kbd>
+        {" "}for AI autocomplete
       </div>
     </>
   )

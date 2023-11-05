@@ -5,6 +5,7 @@ import { Trash } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { toast } from '../ui/use-toast'
 
 type Props = {
   noteId: number
@@ -26,9 +27,11 @@ const DeleteNote = ({ noteId }: Props) => {
     deleteNote.mutate(undefined, {
       onSuccess: () => {
         router.push('/dashboard')
-
       },
       onError: (error) => {
+        toast({
+          description: "Failed to create delete notebook",
+        })
         console.error(error)
       }
     })
