@@ -1,5 +1,5 @@
 import DeleteNote from '@/components/custom/delete-note'
-import TipTapEditor from '@/components/custom/tip-tap-editor'
+import NoteEditor from '@/components/custom/note-editor'
 import { Button } from '@/components/ui/button'
 import { clerk } from '@/lib/clerk'
 import { db } from '@/lib/db'
@@ -35,7 +35,7 @@ export default async function NotebookPage({ params: { note } }: Props) {
   }
   const currentNote = notes[0]
   return (
-    <div className="grainy min-h-screen p-8">
+    <div className=" min-h-screen p-8">
       <div className="max-w-4xl mx-auto">
         <div className="border shadow-xl rounded-lg flex p-4 items-center border-stone-200">
           <Link href="/dashboard">
@@ -52,7 +52,7 @@ export default async function NotebookPage({ params: { note } }: Props) {
         </div>
         <div className="h-4"></div>
         <div className='border border-stone-200 shadow-xl rounded-lg w-full px-16 py-8'>
-          <TipTapEditor note={currentNote} />
+          <NoteEditor note={currentNote} />
         </div>
       </div>
     </div>

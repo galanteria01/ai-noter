@@ -2,7 +2,6 @@
 import React from 'react'
 import { EditorContent, useEditor } from '@tiptap/react'
 import { StarterKit } from '@tiptap/starter-kit'
-import TipTapMenuBar from './tip-tap-menu-bar'
 import { Button } from '../ui/button'
 import { useDebounce } from '@/lib/hooks/useDebounce'
 import { useMutation } from '@tanstack/react-query'
@@ -10,12 +9,13 @@ import axios from 'axios'
 import { NoteType } from '@/lib/db/schema'
 import Text from '@tiptap/extension-text'
 import { useCompletion } from 'ai/react'
+import NoteMenuBar from './note-menu-bar'
 
 type Props = {
   note: NoteType
 }
 
-export default function TipTapEditor({ note }: Props) {
+export default function NoteEditor({ note }: Props) {
   const [editorState, setEditorState] = React.useState(note.editorState ?? `<h1>${note.name}</h1>`)
   const debouncedEditorState = useDebounce(editorState, 500)
   const lastCompletion = React.useRef('')
@@ -73,7 +73,7 @@ export default function TipTapEditor({ note }: Props) {
   return (
     <>
       <div className='flex justify-between'>
-        {editor && <TipTapMenuBar editor={editor} />}
+        {editor && <NoteMenuBar editor={editor} />}
         <Button disabled>
           {saveNote.isPending ? "Saving..." : "Saved"}
         </Button>

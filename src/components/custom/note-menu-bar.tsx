@@ -23,7 +23,7 @@ type Props = {
   editor: Editor
 }
 
-export default function TipTapMenuBar({ editor }: Props) {
+export default function NoteMenuBar({ editor }: Props) {
   return (
     <div className='flex flex-wrap gap-2'>
       <button

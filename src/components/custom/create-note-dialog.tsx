@@ -1,18 +1,19 @@
 'use client'
 import React from 'react'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
 import { Loader2, Plus } from 'lucide-react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { toast } from '../ui/use-toast'
 
 
 type Props = {}
 
 const CreateNoteDialog = (props: Props) => {
-  const [value, setValue] = React.useState<string>()
+  const [value, setValue] = React.useState<string>("")
   const router = useRouter()
 
   const createNotebook = useMutation({
@@ -26,7 +27,9 @@ const CreateNoteDialog = (props: Props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (value === "") {
-      window.alert("Please add value to note name")
+      toast({
+        description: "Please add value to note name",
+      })
       return;
     }
 
@@ -36,7 +39,9 @@ const CreateNoteDialog = (props: Props) => {
         router.push(`/notebook/${note_id}`)
       },
       onError: (error) => {
-        window.alert("Failed to create new notebook")
+        toast({
+          description: "Failed to create new notebook",
+        })
       }
     })
   }
@@ -63,9 +68,11 @@ const CreateNoteDialog = (props: Props) => {
           />
           <div className='h-4'></div>
           <div className="flex items-center gap-2">
-            <Button type='reset' variant={'secondary'}>
-              Cancel
-            </Button>
+            <DialogClose asChild>
+              <Button type='reset' variant={'secondary'} >
+                Cancel
+              </Button>
+            </DialogClose>
             <Button type='submit' className='bg-green-600' disabled={createNotebook.isPending}>
               {createNotebook.isPending ? (<Loader2 className='animate-spin w-4 h-4' />) : "Create"}
             </Button>
