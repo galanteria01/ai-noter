@@ -6,6 +6,17 @@ import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { toast } from '../ui/use-toast'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 type Props = {
   noteId: number
@@ -22,8 +33,6 @@ const DeleteNote = ({ noteId }: Props) => {
     }
   })
   const handleDelete = () => {
-    const confirm = window.confirm("Are you sure you want to delete this note?")
-    if (!confirm) return;
     deleteNote.mutate(undefined, {
       onSuccess: () => {
         router.push('/dashboard')
@@ -38,8 +47,26 @@ const DeleteNote = ({ noteId }: Props) => {
   }
 
   return (
-    <Button variant="destructive" onClick={handleDelete}><Trash /></Button>
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive"><Trash /></Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your
+            note and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={handleDelete}>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
+
 }
 
 export default DeleteNote

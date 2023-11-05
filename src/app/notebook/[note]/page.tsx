@@ -35,7 +35,7 @@ export default async function NotebookPage({ params: { note } }: Props) {
   const currentNote = notes[0]
   return (
     <div className=" min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="border shadow-xl rounded-lg flex p-4 items-center border-stone-200">
           <Link href="/dashboard">
             <Button className='bg-indigo-600' size={'sm'}>Back</Button>
@@ -50,7 +50,7 @@ export default async function NotebookPage({ params: { note } }: Props) {
           <DeleteNote noteId={currentNote.id} />
         </div>
         <div className="h-4"></div>
-        <div className='border border-stone-200 shadow-xl rounded-lg w-full px-16 py-8'>
+        <div className='border border-stone-200 shadow-xl rounded-lg w-full px-8 py-8'>
           <NoteEditor note={currentNote} />
         </div>
       </div>
